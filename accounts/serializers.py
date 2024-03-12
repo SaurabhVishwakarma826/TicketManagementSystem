@@ -2,12 +2,6 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from .models import Department
 
-
-class DepartmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Department
-        fields = ('id', 'name')
-
 class CustomUserSerializer(serializers.ModelSerializer):
     department = DepartmentSerializer(read_only=True)
 
